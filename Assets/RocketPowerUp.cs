@@ -6,14 +6,14 @@ public class RocketPowerUp : MonoBehaviour
 
     void Update()
     {
-        RocketSpawner spawner = FindObjectOfType<RocketSpawner>();
-        if (spawner == null) return;
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player == null) return;
 
-        float dist = Vector3.Distance(transform.position, spawner.transform.position);
+        float dist = Vector3.Distance(transform.position, player.transform.position);
 
         if (dist <= pickupRadius)
         {
-            spawner.IncreaseRocketCount();
+            player.IncreaseRocketCount();
             Destroy(gameObject);
         }
     }
